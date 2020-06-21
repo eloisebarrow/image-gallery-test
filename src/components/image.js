@@ -1,10 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-
-// images
-
-// const [ img01, img02, img03, img04, img05, img06, img07, img08, img09, img10, img11, img12, img13 ] = require('images');
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -37,7 +33,13 @@ const Image = () => {
     }
   `)
 
-  return <Img fluid={data.allImageSharp.edges[2].node.fluid} />
+  const [currentImgIndex, setCurrentImgIndex] = useState(0);
+
+  return (
+    <div onClick={() => setCurrentImgIndex(currentImgIndex !== data.allImageSharp.edges.length - 1 ? currentImgIndex + 1 : 0)}>
+      <Img fluid={data.allImageSharp.edges[currentImgIndex].node.fluid} />
+    </div>
+  )
 }
 
 export default Image
