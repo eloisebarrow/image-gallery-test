@@ -36,7 +36,7 @@ const Image = () => {
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
   return (
-    <div onClick={() => setCurrentImgIndex(currentImgIndex !== data.allImageSharp.edges.length - 1 ? currentImgIndex + 1 : 0)}>
+    <div className="img-container" onClick={() => setCurrentImgIndex(currentImgIndex !== data.allImageSharp.edges.length - 1 ? currentImgIndex + 1 : 0)}>
       <Img fluid={data.allImageSharp.edges[currentImgIndex].node.fluid} />
     </div>
   )
