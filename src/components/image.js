@@ -26,6 +26,7 @@ const Image = () => {
               src
               srcSet
               sizes
+              ...GatsbyImageSharpFluid_withWebpy
             }
           }
         }
